@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='20260223e') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css">
+    {% block head_extra %}{% endblock %}
+</head>
+<body data-page="{{ page }}">
+<div class="bg-orb orb-a"></div>
+<div class="bg-orb orb-b"></div>
+<div class="bg-grid"></div>
+
+<div class="app app-shell">
+    <aside class="main-nav" aria-label="Primary">
+        <div class="brand-wrap">
+            <div class="brand-dot"></div>
+            <div class="brand">Tutoron AI</div>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-group-title">Workspace</div>
+            <a href="{{ url_for('dashboard_page') }}" class="nav-link {% if page == 'dashboard' %}active{% endif %}">Dashboard</a>
+            <a href="{{ url_for('academic_page') }}" class="nav-link {% if page == 'academic' %}active{% endif %}">Academic</a>
+            <a href="{{ url_for('skills_page') }}" class="nav-link {% if page == 'skills' %}active{% endif %}">Skills</a>
+            <a href="{{ url_for('placement_page') }}" class="nav-link {% if page == 'placement' %}active{% endif %}">Placement</a>
+            <a href="{{ url_for('planning_page') }}" class="nav-link {% if page == 'planning' %}active{% endif %}">Planning</a>
+            <a href="{{ url_for('tutor_page') }}" class="nav-link {% if page == 'tutor' %}active{% endif %}">AI Tutor</a>
+        </div>
+        <div class="nav-footer">
+            <div class="nav-user">{{ username }}</div>
+            <form method="post" action="{{ url_for('logout') }}">
+                <button type="submit" class="danger nav-logout">Logout</button>
+            </form>
+        </div>
+    </aside>
+
+    <main class="page-main">
+        <header class="page-header">
+            <h1>{{ title }}</h1>
+            <p class="page-subtitle">{% block subtitle %}Track your learning, prep, and execution in one place.{% endblock %}</p>
+        </header>
+
+        <section class="page-content">
+            <div class="content-wrap">
+                {% block content %}{% endblock %}
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="{{ url_for('static', filename='js/script.js', v='20260223e') }}"></script>
+{% block scripts_extra %}{% endblock %}
+</body>
+</html>

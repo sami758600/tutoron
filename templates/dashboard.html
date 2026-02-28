@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block subtitle %}See progress signals across academics, skills, placement, and plans.{% endblock %}
+
+{% block content %}
+<div class="panel module-hero">
+    <h2>Overview</h2>
+    <p>Use this dashboard as your control center for daily focus and long-term momentum.</p>
+</div>
+
+<div class="panel-grid stats-grid" id="dashboardStats"></div>
+
+<div class="panel-grid two-col">
+    <div class="panel">
+        <h3>Upcoming Goals</h3>
+        <div id="dashboardPlans"></div>
+    </div>
+    <div class="panel">
+        <h3>Placement Pipeline</h3>
+        <div id="dashboardApps"></div>
+    </div>
+</div>
+{% endblock %}

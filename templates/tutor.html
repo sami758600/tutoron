@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block subtitle %}Use streaming responses to get fast, structured guidance in real time.{% endblock %}
+
+{% block content %}
+<div class="panel module-hero">
+    <h2>AI Tutor</h2>
+    <p>Create conversations, rename chats, and learn with streamed responses.</p>
+</div>
+
+<div class="tutor-layout">
+    <aside class="sidebar" id="chatSidebar">
+        <div class="sidebar-header">
+            <button id="newChatBtn" type="button">+ New Chat</button>
+        </div>
+        <div id="chatList" class="chat-list"></div>
+    </aside>
+
+    <section class="tutor-chat-shell">
+        <div id="messages" class="messages"></div>
+        <div class="input-area">
+            <textarea id="messageInput" placeholder="Ask your tutor..."></textarea>
+            <button id="sendBtn" type="button">Send</button>
+        </div>
+    </section>
+</div>
+{% endblock %}

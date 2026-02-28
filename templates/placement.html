@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block subtitle %}Manage your application funnel with clear stage-wise visibility.{% endblock %}
+
+{% block content %}
+<div class="panel module-hero">
+    <h2>Placement Layer</h2>
+    <p>Add applications and move them through preparing, applied, interviewing, and offered.</p>
+</div>
+
+<div class="panel">
+    <h3>Track Application</h3>
+    <form id="applicationForm" class="row-form">
+        <input id="appCompany" type="text" placeholder="Company" required>
+        <input id="appRole" type="text" placeholder="Role" required>
+        <select id="appStatus">
+            <option>Preparing</option>
+            <option>Applied</option>
+            <option>Interviewing</option>
+            <option>Offered</option>
+            <option>Rejected</option>
+        </select>
+        <button type="submit">Track</button>
+    </form>
+</div>
+
+<div class="panel-grid four-col" id="applicationBoard"></div>
+{% endblock %}

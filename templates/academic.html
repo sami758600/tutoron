@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block subtitle %}Structure subjects and topics so your revision is measurable and consistent.{% endblock %}
+
+{% block content %}
+<div class="panel module-hero">
+    <h2>Academic Layer</h2>
+    <p>Create subjects, organize by units, and auto-import topics directly from syllabus PDFs.</p>
+</div>
+
+<div class="panel">
+    <h3>Choose Setup Mode</h3>
+    <div class="mode-switch" id="academicModeSwitch">
+        <label>
+            <input type="radio" name="academicMode" value="manual" checked>
+            <span>Manual</span>
+        </label>
+        <label>
+            <input type="radio" name="academicMode" value="automatic">
+            <span>Automatic (PDF)</span>
+        </label>
+    </div>
+</div>
+
+<div id="manualPanel" class="panel">
+    <h3>Add Subject</h3>
+    <form id="subjectForm" class="stack-form">
+        <input id="subjectName" type="text" placeholder="Subject name" required>
+        <input id="subjectSemester" type="text" placeholder="Semester (e.g. Sem 5)" required>
+        <button type="submit">Add Subject</button>
+    </form>
+</div>
+
+<div id="automaticPanel" class="panel hidden">
+    <h3>Import Syllabus PDF</h3>
+    <form id="syllabusImportForm" class="stack-form" enctype="multipart/form-data">
+        <input id="importSubjectName" type="text" placeholder="Subject name" required>
+        <input id="importSubjectSemester" type="text" placeholder="Semester (e.g. Sem 5)" required>
+        <input id="syllabusFile" type="file" accept=".pdf,application/pdf" required>
+        <button type="submit">Import Units + Topics</button>
+    </form>
+    <div class="muted">Best results when unit headings are like: UNIT 1, UNIT II, or MODULE 3.</div>
+</div>
+
+<div class="panel">
+    <h3>Subjects</h3>
+    <div id="subjectList" class="list-container"><div class="muted">Loading subjects...</div></div>
+</div>
+
+<div class="panel-grid two-col">
+    <div id="importStatusPanel" class="panel hidden">
+        <h3>Import Status</h3>
+        <div id="importStatus" class="list-container"><div class="muted">No imports yet.</div></div>
+    </div>
+</div>
+{% endblock %}

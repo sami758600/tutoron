@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block subtitle %}Map technical capabilities and monitor how fast they are improving.{% endblock %}
+
+{% block content %}
+<div class="panel module-hero">
+    <h2>Skills Layer</h2>
+    <p>Track DSA, core, and project skills with measurable proficiency.</p>
+</div>
+
+<div class="panel-grid two-col">
+    <div class="panel">
+        <h3>Add Skill</h3>
+        <form id="skillForm" class="stack-form">
+            <input id="skillName" type="text" placeholder="Skill name" required>
+            <select id="skillCategory">
+                <option value="DSA">DSA</option>
+                <option value="Core">Core</option>
+                <option value="Project">Project</option>
+            </select>
+            <input id="skillProficiency" type="number" min="0" max="100" value="10" placeholder="Proficiency %">
+            <button type="submit">Add Skill</button>
+        </form>
+    </div>
+
+    <div class="panel">
+        <h3>Skill Tracker</h3>
+        <div id="skillList" class="chip-grid"></div>
+    </div>
+</div>
+{% endblock %}

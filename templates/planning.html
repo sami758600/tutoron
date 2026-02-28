@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block subtitle %}Turn goals into dated milestones and complete them with discipline.{% endblock %}
+
+{% block content %}
+<div class="panel module-hero">
+    <h2>Planning Layer</h2>
+    <p>Set goals, assign dates, and track completion state over time.</p>
+</div>
+
+<div class="panel">
+    <h3>Voice Reminder</h3>
+    <form id="voiceReminderForm" class="stack-form">
+        <div class="row-form">
+            <textarea id="voiceTranscriptInput" placeholder="Speak or type reminder text..." rows="3" required></textarea>
+        </div>
+        <div class="row-form">
+            <button id="voiceMicBtn" type="button">Start Mic</button>
+            <button id="voiceReminderSubmitBtn" type="submit">Create Reminder</button>
+            <button id="enableDesktopNotifyBtn" type="button">Enable Desktop Alerts</button>
+        </div>
+    </form>
+    <div id="voiceReminderStatus" class="muted">Use mic or type directly. You can edit transcript before creating.</div>
+</div>
+
+<div class="panel">
+    <h3>Add Study Plan</h3>
+    <form id="planForm" class="row-form">
+        <input id="planTitle" type="text" placeholder="Goal title" required>
+        <input id="planDescription" type="text" placeholder="Description (optional)">
+        <input id="planDate" type="date">
+        <button type="submit">Set Goal</button>
+    </form>
+</div>
+
+<div class="panel">
+    <h3>Active Plans</h3>
+    <div id="planList" class="list-container"></div>
+</div>
+
+<div class="panel">
+    <h3>Saved Reminders</h3>
+    <div id="reminderList" class="list-container"><div class="muted">Loading reminders...</div></div>
+</div>
+
+<div id="reminderModal" class="notify-modal hidden" role="dialog" aria-modal="true" aria-labelledby="notifyTitle">
+    <div class="notify-card">
+        <h3 id="notifyTitle">Reminder</h3>
+        <p id="notifyBody" class="muted"></p>
+        <button id="notifyCloseBtn" type="button">Dismiss</button>
+    </div>
+</div>
+{% endblock %}
